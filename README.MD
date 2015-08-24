@@ -1,7 +1,7 @@
-## 准备环境
+## 一. 准备环境
 
 一下是使用vagrant，享用统一开发环境，
-你可以可以选择(手动配置)[install.md]
+你可以可以选择[手动配置环境](./install.md)
 
 #### 1. 虚拟机
 
@@ -16,17 +16,13 @@
 
 
 
-### 
+##  二. 添加box
 
-启动 命令行（cmd）或者 终端（terminal）切换到以上目录
-
+启动 命令行（cmd）或者 终端（terminal）切换到以上目录;
 如windows下: `cd /d D:\box\`  linux: ` cd ~/box/`
 
-### 添加box
-
-目前版本虚拟机大小是300M
-
-网络好可以在线安装
+可以选择在线添加或者离线添加
+网络好可以在线安装 (目前版本虚拟机大小是300M)
 ```
 vagrant box add NewFuture/yunyin 
 ```
@@ -36,7 +32,7 @@ vagrant box add base yunyin.box
 ```
 
 
-## 初始化
+## 三. 初始化
 
 ```
 vagrant init
@@ -50,16 +46,19 @@ vagrant init
 ### 端口映射
 本机的80（或者其他均可）端口映射到虚拟机的80端口
 
-## 启动
+## 四. 启动
 
 ```
 vagrant up
 ```
 
-##
 
 ##
+
+## 六. 其他说明
 
 默认sudo 用户: `vagrant` 密码: `vagrant`
 
 默认普通 用户: `yunyin`  密码： `yunyin` 
+
+数据库管理为 `http://127.0.0.1/adminer` [时间域名和端口与本机配置有关]
