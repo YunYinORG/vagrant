@@ -1,7 +1,8 @@
 ## 一. 准备环境
 
-一下是使用vagrant，享用统一开发环境，
-你可以可以选择[手动配置环境](./install.md)
+以下是使用vagrant，享用统一开发环境！
+
+你也可以选择[手动配置环境](./install.md)
 
 #### 1. 虚拟机
 
@@ -17,8 +18,6 @@
 
 
 ##  二. 添加box
-
-
 
 可以选择在线添加或者离线添加
 网络好可以在线安装 (目前版本虚拟机大小是301.3M)
@@ -42,8 +41,8 @@ vagrant box add yunyin D:\yunyin.box (实际下载的位置)
 放到yunyin目录下如(`D:\yunyin\Vagrantfile`)
 
 #### 3.修改其中配置的第18行
-把共享文件修改到你的代码目录（web的根目录）下如
 
+把共享文件修改到你的代码目录（web的根目录）下如
 ```ruby
 config.vm.synced_folder "E:/git/YunYinSerVice/(文件夹必须存在)", "/var/www/html/"
 ```
@@ -52,7 +51,8 @@ config.vm.synced_folder "E:/git/YunYinSerVice/(文件夹必须存在)", "/var/ww
 
 ## 四. 启动
 
-启动 命令行（cmd）或者 终端（terminal）切换到;
+启动 命令行（cmd）或者 终端（terminal）切换到上面的目录;
+
 如windows下: `cd /d D:\yunyin\`  linux: ` cd ~/yunyin/`
 ```
 vagrant up
