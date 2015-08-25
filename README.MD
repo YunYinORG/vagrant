@@ -22,7 +22,7 @@
 可以选择在线添加或者离线添加
 网络好可以在线安装 (目前版本虚拟机大小是301.3M)
 ```
-vagrant box add yunyin NewFuture/yunyin 
+vagrant box add yunyin newfuture/yunyin 
 ```
 网络差下载[yunyin.box](http://pan.baidu.com/s/1jG9zLKa),放到文件下离线加入 
 ```
