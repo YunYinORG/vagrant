@@ -18,17 +18,16 @@
 
 ##  二. 添加box
 
-启动 命令行（cmd）或者 终端（terminal）切换到以上目录;
-如windows下: `cd /d D:\box\`  linux: ` cd ~/box/`
+
 
 可以选择在线添加或者离线添加
 网络好可以在线安装 (目前版本虚拟机大小是301.3M)
 ```
-vagrant box add NewFuture/yunyin 
+vagrant box add yunyin NewFuture/yunyin 
 ```
 网络差下载[yunyin.box](http://pan.baidu.com/s/1jG9zLKa),放到文件下离线加入 
 ```
-vagrant box add base ./yunyin.box (实际下载的位置)
+vagrant box add yunyin D:\yunyin.box (实际下载的位置)
 ```
 
 
@@ -53,6 +52,8 @@ config.vm.synced_folder "E:/git/YunYinSerVice/(文件夹必须存在)", "/var/ww
 
 ## 四. 启动
 
+启动 命令行（cmd）或者 终端（terminal）切换到;
+如windows下: `cd /d D:\yunyin\`  linux: ` cd ~/yunyin/`
 ```
 vagrant up
 ```
