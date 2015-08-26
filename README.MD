@@ -2,7 +2,9 @@
 ============
 只需三步,几款享用云印统一开发环境！
 ------------------
-以下是使用vagrant配置虚拟机，你也可以选择[手动配置环境](./install.md)
+
+以下是使用vagrant自动配置部署虚拟机，
+（当然你也可以选择[手动配置环境](./install.md)~）
 
 ## 一. 准备环境
 
@@ -24,7 +26,7 @@
 
 #### 2.添加配置文件 [Vagrantfile](./Vagrantfile)
 
-在这儿下载[https://raw.githubusercontent.com/YunYinORG/vagrant/master/install.md](https://raw.githubusercontent.com/YunYinORG/vagrant/master/install.md)
+在这儿下载[https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile](https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile)
 
 放到刚才目录下(如`D:\vagrant\Vagrantfile` 或者 `/home/me/vagrant/Vagrantfile`) 
 
