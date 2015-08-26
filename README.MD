@@ -44,7 +44,7 @@ config.vm.synced_folder "E:/git/YunYinSerVice/(本机文件夹必须存在，可
 
 启动 命令行（cmd）或者 终端（terminal）切换到上面的目录;
 
-如windows下: `cd /d D:\yunyin\`  linux: ` cd ~/yunyin/`
+如windows下: `cd /d D:\vagrant\`  linux: ` cd ~/vagrant/`
 ```
 vagrant up
 ```
