@@ -28,7 +28,7 @@
 
 在这儿下载[https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile](https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile)
 
-放到刚才目录下(如`D:\vagrant\Vagrantfile` 或者 `/home/me/vagrant/Vagrantfile`) 
+放到刚才目录下(如`D:\vagrant\Vagrantfile` 或者 `/home/me/vagrant/Vagrantfile`)
 
 #### 3.修改其中配置的第18行
 
@@ -36,6 +36,7 @@
 ```ruby
 config.vm.synced_folder "E:/git/YunYinSerVice/(本机文件夹必须存在，可以注释掉)", "/var/www/html/"
 ```
+http://vagrant.yunyin.org:8888的根目录
 
 其他 配置可自行修改
 
@@ -54,7 +55,7 @@ vagrant up
 虚拟机正常启动并连接后
 
 如果正常会自动部署最新的数据库和代码
-并可以在 `http://vagrant.yunyin.org:8888/yunyin/`演示[端口为配置的端口]
+并可以在 `http://yunyin.localhost:8888/`演示[端口为配置的端口]
 
 
 **至此已经安装完成~**（如果顺利只需一行命令)
@@ -68,7 +69,7 @@ vagrant halt
 ```
 重新加载配置文件
 ```
-vagrant reload 
+vagrant reload
 ```
 休眠和恢复
 ```
@@ -84,10 +85,11 @@ vagrant list-commands
 
 可以使用ssh  连接端口2222登录到虚拟机(正常情况你不需要这么做)
 
-默认sudo 用户: `vagrant` 密码: `vagrant`
+* 默认sudo 用户: `vagrant` 密码: `vagrant`
+* 默认普通 用户: `yunyin`  密码： `yunyin`
 
-默认普通 用户: `yunyin`  密码： `yunyin`
-
-数据库管理为 `http://vagrant.yunyin.org:8888/adminer` [时间域名和端口与本机配置有关]
+* 数据库管理为 `http://vagrant.yunyin.org:8888/adminer` [实际域名和端口与主机配置有关]
+* 自动部署的demo地址 http://yunyin.localhost:8888/[实际域名和端口与主机配置有关]
+* 项目调试地址  http://vagrant.yunyin.org:8888/(即localhost)[实际域名和端口与主机配置有关]
 
 vagrant 使用文档[https://docs.vagrantup.com/](https://docs.vagrantup.com/)
