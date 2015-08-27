@@ -11,7 +11,6 @@ show_vm_window   = false #开机后是否显示窗口,如果要打开改为 true
 
 #一下是具体配置，#号为注释内容
 Vagrant.configure(2) do |config|
-  puts("加载配置...")
   webhost="localhost"+(local_web_port==80 ? "" : ":#{local_web_port}")
   config.vm.box = box_name
 
@@ -28,14 +27,14 @@ Vagrant.configure(2) do |config|
     puts "\n你可修改Vagrantfile第5行的localhost_folder指向本机后端目录（web根目录）与虚拟机同步共享";
   else
     config.vm.synced_folder localhost_folder, "/var/www/html/" #http://localhost/
-    puts "http://#{webhost}/为后端测地址，与本地文件夹#{localhost_folder}同步\n"
+    puts "http://#{webhost}/根目录与主机#{localhost_folder}同步"
   end
   #前端目录
   if front_folder.empty?
     puts "\n你可修改Vagrantfile第6行front_folder指向本地的前端，与虚拟机共享同步";
   else
-    config.vm.synced_folder front_folder "/var/www/front/"  #http://front.localhost/
-    puts "http://front.#{webhost}/为前端测试地址，与本地文件夹#{front_folder}同步\n"
+    config.vm.synced_folder front_folder,"/var/www/front/"  #http://front.localhost/
+    puts "http://front.#{webhost}/与主机#{front_folder}同步"
   end
 
   ### 虚拟机配置 ####
@@ -60,5 +59,5 @@ Vagrant.configure(2) do |config|
     cp /vagrant/YunYinService-master/conf/secret.common.ini /vagrant/YunYinService-master/conf/secret.local
     SHELL
   end
-  puts "\n顺利启动后你可以在http://#{webhost}/adminer下,在线管理数据库\n"
+  puts "\n顺利启动后一下调试地址可能对你有用:","http://#{webhost}/adminer下,在线管理数据库","http://#{webhost}/,后端调试地址","http://front.#{webhost}/,前端调试页",""
 end
