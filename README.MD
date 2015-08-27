@@ -29,34 +29,18 @@
 在这儿下载[https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile](https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile)
 
 放到刚才目录下(如`D:\vagrant\Vagrantfile` 或者 `/home/me/vagrant/Vagrantfile`)
-
-#### 3.修改其中配置的第18行
-
-把共享文件修改到你的代码目录（web的根目录）下如
-```ruby
-config.vm.synced_folder "E:/git/YunYinSerVice/(本机文件夹必须存在，可以注释掉)", "/var/www/html/"
-```
-http://vagrant.yunyin.org:8888的根目录
-
-其他 配置可自行修改
-
+配置可按要求修改
 
 ## 三. 启动
 
 启动 命令行（cmd）或者 终端（terminal）切换到上面的目录;
-
 如windows下: `cd /d D:\vagrant\`  linux: ` cd ~/vagrant/`
 ```
 vagrant up
 ```
-
-首次运行会自动下载虚拟机box并加载(大概300M)
-
-虚拟机正常启动并连接后
-
+首次运行会自动下载虚拟机box并加载(大概300M)；
+虚拟机正常启动并连接后；
 如果正常会自动部署最新的数据库和代码
-并可以在 `http://yunyin.localhost:8888/`演示[端口为配置的端口]
-
 
 **至此已经安装完成~**（如果顺利只需一行命令)
 
