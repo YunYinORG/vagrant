@@ -10,8 +10,7 @@
 
 #### 1. 虚拟机
 
-* windows 8.1或者10系统自带hyper-V，不用安装
-* win7, MAC 或者 Linux 安装 [virtual-box](https://www.virtualbox.org/wiki/Downloads)
+下载安装 [virtual-box](https://www.virtualbox.org/wiki/Downloads)
 
 ##### 2. 安装vagrant
 下载最新vagrant 并安装

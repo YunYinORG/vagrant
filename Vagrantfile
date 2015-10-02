@@ -29,12 +29,34 @@ Vagrant.configure(2) do |config|
     config.vm.synced_folder localhost_folder, "/var/www/html/" #http://localhost/
     puts "http://#{webhost}/根目录与主机#{localhost_folder}同步"
   end
+
+ if auto_load_demo
+    puts "\n使用 'vagrant provision' 命令自动初始化数据库和重新部署演示代码"
+    puts "最新演示代码在此http://demo.#{webhost}/测试"
+    config.vm.provision "demo",type: "shell", inline: <<-SHELL
+    #"重新导入下载导入数据库"
+    wget https://raw.githubusercontent.com/YunYinORG/database/master/yunyin.sql -O /home/vagrant/yunyin.sql
+    echo "DROP DATABASE IF EXISTS yunyin;CREATE DATABASE yunyin DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;">/home/vagrant/createdb.sql;
+    sudo mysql -uroot mysql</home/vagrant/createdb.sql
+    sudo mysql -uroot yunyin</home/vagrant/yunyin.sql
+    #"重新下载导入源文件"
+    wget "https://github.com/YunYinORG/YunYinService/archive/master.zip" -O /home/vagrant/yunyin.zip
+    unzip -o /home/vagrant/yunyin.zip -d /vagrant/
+    mv /vagrant/YunYinService-master /vagrant/demo
+    cp /vagrant/demo/conf/secret.common.ini /vagrant/demo/conf/secret.local
+    SHELL
+  end
+
   #前端目录
   if front_folder.empty?
     puts "\n你可修改Vagrantfile第6行front_folder指向本地的前端，与虚拟机共享同步";
   else
     config.vm.synced_folder front_folder,"/var/www/front/"  #http://front.localhost/
     puts "http://front.#{webhost}/与主机#{front_folder}同步"
+    #首次自动安装npm
+    config.vm.provision "npm_install",type: "shell",inline: "cd /var/www/front/; npm install --no-bin-link",privileged:false
+    #自动检测变化
+    config.vm.provision "watch",type: "shell",inline: "cd /var/www/front/;webpack",run: "always",privileged:false
   end
 
   ### 虚拟机配置 ####
@@ -44,20 +66,5 @@ Vagrant.configure(2) do |config|
     vb.memory = vm_memory
   end
 
-  if auto_load_demo
-    puts "\n使用 'vagrant provision' 命令自动初始化数据库和重新部署演示代码"
-    puts "最新演示代码在此http://yunyin.#{webhost}/测试"
-    config.vm.provision "shell", inline: <<-SHELL
-    #"重新导入下载导入数据库"
-    wget https://raw.githubusercontent.com/YunYinORG/database/master/yunyin.sql -O /home/vagrant/yunyin.sql
-    echo "DROP DATABASE IF EXISTS yunyin;CREATE DATABASE yunyin DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;">/home/vagrant/createdb.sql;
-    sudo mysql -uroot mysql</home/vagrant/createdb.sql
-    sudo mysql -uroot yunyin</home/vagrant/yunyin.sql
-    #"重新下载导入源文件"
-    wget "https://github.com/YunYinORG/YunYinService/archive/master.zip" -O /home/vagrant/yunyin.zip
-    unzip -o /home/vagrant/yunyin.zip -d /vagrant/
-    cp /vagrant/YunYinService-master/conf/secret.common.ini /vagrant/YunYinService-master/conf/secret.local
-    SHELL
-  end
   puts "\n顺利启动后一下调试地址可能对你有用:","http://#{webhost}/adminer下,在线管理数据库","http://#{webhost}/,后端调试地址","http://front.#{webhost}/,前端调试页",""
 end

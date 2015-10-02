@@ -54,6 +54,13 @@ make test
 sudo make install
 ```
 
+### 6. Node ,npm和webpack
+
+```
+sudo yum install nodejs npm
+sudo npm install webpack
+```
+
 ## 三. 修改配置
 
 ### 1. php配置
