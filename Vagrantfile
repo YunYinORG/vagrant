@@ -4,7 +4,7 @@
 box_name         = "newfuture/yunyin"
 localhost_folder = ""    #设置http://localhost/根目录,后端工作目录,与虚拟机同步共享（如D:/YunYinService/）
 front_folder     = ""    #设置http://front.localhost/根目录,前端开发工作目录(同上)
-local_web_port   = 8888  #web端口，如果主机映射端口被占用换做其他
+local_web_port   = 80  #web端口，如果主机映射端口被占用换做其他
 auto_load_demo   = true  #首次启动自动下载配置最新代码
 vm_memory        = 512   #为虚拟机分配内存，可根据本机增大如1024
 show_vm_window   = false #开机后是否显示窗口,如果要打开改为 true
