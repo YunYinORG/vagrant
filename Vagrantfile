@@ -4,6 +4,7 @@
 box_name         = "newfuture/yunyin"
 localhost_folder = ""    #设置http://localhost/根目录,后端工作目录,与虚拟机同步共享（如D:/YunYinService/）
 front_folder     = ""    #设置http://front.localhost/根目录,前端开发工作目录(同上)
+py_folder        = ""    #python同步目录，支持wsgi的webpy
 local_web_port   = 80  #web端口，如果主机映射端口被占用换做其他
 auto_load_demo   = true  #首次启动自动下载配置最新代码
 vm_memory        = 512   #为虚拟机分配内存，可根据本机增大如1024
@@ -28,6 +29,10 @@ Vagrant.configure(2) do |config|
   else
     config.vm.synced_folder localhost_folder, "/var/www/html/" #http://localhost/
     puts "http://#{webhost}/根目录与主机#{localhost_folder}同步"
+  end
+
+  if !py_folder.empty?
+    config.vm.synced_folder py_folder, "/var/www/py/" #http://127.0.0.2/
   end
 
  if auto_load_demo
