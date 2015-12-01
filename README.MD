@@ -1,10 +1,7 @@
-云印统一开放环境部署
+云印统一开放环境自动同步部署
 ============
-只需三步,几款享用云印统一开发环境！
+只需三步,即可使用云印统一开发环境！
 ------------------
-
-以下是使用vagrant自动配置部署虚拟机，
-（当然你也可以选择[手动配置环境](./install.md)~）
 
 ## 一. 准备环境
 
@@ -12,23 +9,16 @@
 
 下载安装 [virtual-box](https://www.virtualbox.org/wiki/Downloads)
 
-##### 2. 安装vagrant
+#### 2. 安装vagrant
 下载最新vagrant 并安装
 [https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html)
 
 
 ##  二. 添加配置文件
+更多说明查看wiki
+#### 1.clone此仓库到vagrant目录
 
-#### 1.新建一个文件夹(如 `D:\vagrant\` 或者 `/home/me/vagrant/`)
-
-注意：保证vagrant有完全的可读写权限
-
-#### 2.添加配置文件 [Vagrantfile](./Vagrantfile)
-
-在这儿下载[https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile](https://raw.githubusercontent.com/YunYinORG/vagrant/master/Vagrantfile)
-
-放到刚才目录下(如`D:\vagrant\Vagrantfile` 或者 `/home/me/vagrant/Vagrantfile`)
-配置可按要求修改
+#### 2按要求修改`Vagrantfile`.配置
 
 ## 三. 启动
 
@@ -42,37 +32,3 @@ vagrant up
 如果正常会自动部署最新的数据库和代码
 
 **至此已经安装完成~**（如果顺利只需一行命令)
-
-
-## 四. 其他命令
-
-关机
-```
-vagrant halt
-```
-重新加载配置文件
-```
-vagrant reload
-```
-休眠和恢复
-```
-vagrant suspend
-vagrant resume
-```
-更多
-```
-vagrant list-commands
-```
-
-## 五. 其他说明
-
-可以使用ssh  连接端口2222登录到虚拟机(正常情况你不需要这么做)
-
-* 默认sudo 用户: `vagrant` 密码: `vagrant`
-* 默认普通 用户: `yunyin`  密码： `yunyin`
-
-* 数据库管理为 `http://vagrant.yunyin.org:8888/adminer` [实际域名和端口与主机配置有关]
-* 自动部署的demo地址 http://yunyin.localhost:8888/[实际域名和端口与主机配置有关]
-* 项目调试地址  http://vagrant.yunyin.org:8888/(即localhost)[实际域名和端口与主机配置有关]
-
-vagrant 使用文档[https://docs.vagrantup.com/](https://docs.vagrantup.com/)

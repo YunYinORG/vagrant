@@ -2,6 +2,9 @@
 Thumbs.db
 ehthumbs.db
 
+demo/
+.vagrant/
+
 # Folder config file
 Desktop.ini
 
