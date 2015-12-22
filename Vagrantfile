@@ -7,12 +7,11 @@ front_folder     = ""    #设置http://front.localhost/根目录,前端开发工
 py_folder        = ""    #python同步目录，支持wsgi的webpy
 local_web_port   = 80    #web端口，如果主机映射端口被占用换做其他
 local_py_port    = 8080  #手动设置webpy端口
-init_print       = false #导入云印服务数据库和更置
-init_find        = false #导入招领服务数据库和更新配置
 auto_load_demo   = false #首自动加载配置次启动自动下载配置最新代码
 vm_memory        = 512   #为虚拟机分配内存，可根据本机增大如1024
 show_vm_window   = false #开机后是否显示窗口,如果要打开改为 true
 message="\n\n\n\n\t\t\tYunYin 虚拟机环境已启动 V2.1.2"#启动显示提示
+
 #一下是具体配置，#号为注释内容
 Vagrant.configure(2) do |config|
   viewport=(local_web_port==80 ? "" : ":#{local_web_port}")
@@ -66,7 +65,7 @@ Vagrant.configure(2) do |config|
     cp /vagrant/demo/conf/secret.common.ini /vagrant/demo/conf/secret.local
     SHELL
   end
-  if init_print #云印服务初始化
+  if localhost_folder.empty? #云印服务初始化
     # puts("\n\t重新导入校园卡招领数据库\n")
     config.vm.provision "print",type: "shell", inline: <<-SHELL
     #"重新导入下载导入数据库"
@@ -79,7 +78,7 @@ Vagrant.configure(2) do |config|
     fi 
     SHELL
   end
-  if init_find #招领服务初始化
+  if !py_folder.empty? #招领服务初始化,导入云印服务数据库和配置
     # puts("\n\t重新导入校园卡招领数据库\n")
     config.vm.provision "find",type: "shell", inline: <<-SHELL
     #"重新导入下载导入数据库"
