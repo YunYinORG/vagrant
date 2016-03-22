@@ -44,9 +44,9 @@ sudo yum install php56w.x86_64 php56w-common.x86_64 php56w-mbstring.x86_64 php56
 ### 5. YAF
 下载编译和安装yaf
 ```
-wget http://pecl.php.net/get/yaf-2.3.4.tgz
-tar zxvf yaf-2.3.4.tgz
-cd yaf-2.3.4
+wget http://pecl.php.net/get/yaf-2.3.5.tgz
+tar zxvf yaf-2.3.5.tgz
+cd yaf-2.3.5
 phpize
 ./configure
 make
