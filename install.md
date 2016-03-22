@@ -27,13 +27,19 @@ sudo yum install httpd
 
  **centos 6.x**更新源 `sudo rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm`
 
- **centos7.x**更新源 `sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm`和`sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm`
+ **centos 7.x** 更新源 `sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm`和`sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm`
 
 
 
-#### 3. mysql5.5数据库服务
+#### 3. mysql数据库服务
+**cebtos 6.x**如下
 ```
 sudo yum install mysql55w mysql55w-server
+```
+**centos 7.x**版需要更新源
+```
+sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+sudo yum install mysql
 ```
 
 ### 4. php5.6和必须扩展
