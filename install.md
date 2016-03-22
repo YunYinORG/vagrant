@@ -38,7 +38,7 @@ sudo yum install mysql55w mysql55w-server
 
 ### 4. php5.6和必须扩展
 ```
-sudo yum install php56w.x86_64 php56w-common.x86_64 php56w-mbstring.x86_64 php56w-mcrypt.x86_64 php56w-mysql.x86_64 php56w-pdo.x86_64 php56w-devel
+sudo yum install php56w.x86_64 php56w-common.x86_64 php56w-mbstring.x86_64 php56w-mcrypt.x86_64 php56w-mysql.x86_64 php56w-pdo.x86_64 php56w-devel php56w-opcache php56w-pecl-apcu
 ```
 
 ### 5. YAF
