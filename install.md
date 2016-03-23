@@ -39,7 +39,7 @@ sudo yum install mysql55w mysql55w-server
 **centos 7.x**版需要更新源
 ```
 sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
-sudo yum install mysql
+sudo yum install mysql-community-server
 ```
 
 ### 4. php5.6和必须扩展
