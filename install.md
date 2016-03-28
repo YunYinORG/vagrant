@@ -36,10 +36,9 @@ sudo yum install httpd
 ```
 sudo yum install mysql55w mysql55w-server
 ```
-**centos 7.x**版需要更新源
+**centos 7.x**安装mariadb
 ```
-sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
-sudo yum install mysql-community-server
+sudo yum install mariadb mariadb-server
 ```
 
 ### 4. php5.6和必须扩展
