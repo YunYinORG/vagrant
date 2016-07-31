@@ -9,7 +9,7 @@
 #sudo yum install git -y
 
 sudo hostnamectl --static set-hostname vagrant.yunyin.org
-sudo sh -c "echo $'\n\t\tWelcome to YYF VM 1.0\nCentOS 7.1,PHP 7.0.5,Apache 2.4.6,MariaDB 5.5,yaf 3.0.5\nAbout YYF: https://github.com/YunYinORG/YYF\nYunYin VM: https://github.com/YunYinORG/vagrant\n' >/etc/motd"
+sudo sh -c "echo $'\n\t\tWelcome to YYF VM 1.1\nCentOS 7.1,PHP 7.0.5,Apache 2.4.6,MariaDB 5.5,yaf 3.0.3\nAbout YYF: https://github.com/YunYinORG/YYF\nYunYin VM: https://github.com/YunYinORG/vagrant\n' >/etc/motd"
 
 # Apache
 sudo yum install httpd -y
@@ -24,9 +24,10 @@ sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 sudo yum install -y php70w php70w-pdo_mysql php70w-mcrypt php70w-mbstring
 
 # YAF
-sudo cp /vagrant/yaf.so /usr/lib64/php/modules/yaf.so
+sudo cp /vagrant/yaf.3.0.3.so /usr/lib64/php/modules/yaf.so
 # #add yaf to php.ini
-sudo sh -c "echo $'\nextension=yaf.so\n[yaf]\nyaf.environ=dev'>>/etc/php.ini"
+# sudo sh -c "echo $'\nextension=yaf.so\n[yaf]\nyaf.environ=dev'>>/etc/php.ini"
+# sudo sh -c "echo $'\nextension=yaf.so\n[yaf]\nyaf.environ=dev'>/etc/php.d/yaf.ini"
 sudo sh -c "echo '<?php phpinfo();?>'>/var/www/html/index.php"
 # httpd config
 sudo sh -c "echo $'ServerName vagrant.yunyin.org\n
