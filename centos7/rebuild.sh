@@ -1,28 +1,11 @@
 #!/bin/sh
-
-####
-# rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n
-####
-
 sudo service httpd stop
 sudo systemctl stop mariadb
 
-# Remove Postfix
-systemctl stop postfix
-systemctl disable postfix
-yum remove -y postfix
+echo $'\n\t\tWelcome to YYF VM 1.3\nCentOS 7.1,PHP 7.0.5,Apache 2.4.6,MariaDB 5.5,yaf 3.0.3\nAbout YYF: https://github.com/YunYinORG/YYF\nYunYin VM: https://github.com/YunYinORG/vagrant\n' >/etc/motd
+#echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key">/home/vagrant/.ssh/authorized_keys
 
-# Remove Linux headers
 
-yum -y remove NetworkManager-team
-
-yum install -y NetworkManager-libnm
-yum -y remove *firmware avahi-autoipd avahi-libs avahi bluez-utils kudzu alsa-lib fxload rdma man-db microcode_ctl 
-
-yum remove -y selinux-policy grub2 grub2-tools firewalld policycoreutils xfsprogs hwdata parted
-
-yum autoremove -y
-yum clean all
 # Next time yum will retrieve new list of mirrors & stuff
 rm -rf /var/cache/yum
 
@@ -31,8 +14,6 @@ rm -rf /usr/src/vboxguest* /usr/src/virtualbox-ose-guest*
 rm -rf *.iso *.iso.? /tmp/vbox /home/vagrant/.vbox_version
 
 # remove interface persistent
-rm -f /etc/udev/rules.d/70-persistent-net.rules
-
 for ifcfg in $(ls /etc/sysconfig/network-scripts/ifcfg-*)
 do
     if [ "$(basename ${ifcfg})" != "ifcfg-lo" ]
@@ -47,7 +28,7 @@ rm -rf /tmp/*
 
 
 # Cleanup log files
-sudo sh -c "cat /dev/null > /var/adm/syslog"
+cat /dev/null > /var/adm/syslog
 find /var/log -type f | while read f; do echo -ne '' > $f; done;
 
 
